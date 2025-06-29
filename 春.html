@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>春日之约</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            spring: {
+              primary: '#4CAF50', // 春天绿色
+              secondary: '#FFC107', // 阳光黄色
+              accent: '#FF5722', // 花朵橙色
+              light: '#F1F8E9', // 淡绿色背景
+              sky: '#B3E5FC', // 天空蓝色
+              flower: '#F8BBD0', // 花朵粉色
+            },
+          },
+          fontFamily: {
+            spring: ['"Dancing Script"', 'cursive', 'sans-serif'],
+            main: ['"Open Sans"', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .text-shadow {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+      .animate-float {
+        animation: float 3s ease-in-out infinite;
+      }
+      .animate-flutter {
+        animation: flutter 4s ease-in-out infinite;
+      }
+      .animate-grow {
+        animation: grow 2s ease-out forwards;
+      }
+      .bg-gradient-spring {
+        background: linear-gradient(135deg, #F1F8E9 0%, #B3E5FC 100%);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    @keyframes flutter {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-5px) rotate(2deg); }
+      75% { transform: translateY(5px) rotate(-2deg); }
+    }
+    
+    @keyframes grow {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-spring min-h-screen overflow-x-hidden">
+  <!-- 导航栏 -->
+  <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="#" class="text-2xl md:text-3xl font-spring font-bold text-spring-primary text-shadow">
+        春日之约
+      </a>
+      <div class="hidden md:flex space-x-8">
+        <a href="#home" class="text-spring-primary hover:text-spring-accent transition-colors font-main font-semibold">首页</a>
+        <a href="#features" class="text-spring-primary hover:text-spring-accent transition-colors font-main font-semibold">春之特色</a>
+        <a href="#gallery" class="text-spring-primary hover:text-spring-accent transition-colors font-main font-semibold">春之画廊</a>
+        <a href="#activities" class="text-spring-primary hover:text-spring-accent transition-colors font-main font-semibold">春日活动</a>
+        <a href="#contact" class="text-spring-primary hover:text-spring-accent transition-colors font-main font-semibold">联系我们</a>
+      </div>
+      <button class="md:hidden text-spring-primary text-2xl" id="menu-toggle">
+        <i class="fa fa-bars"></i>
+      </button>
+    </div>
+    <!-- 移动端菜单 -->
+    <div class="md:hidden hidden bg-white/90 backdrop-blur-sm shadow-lg absolute top-full left-0 right-0" id="mobile-menu">
+      <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+        <a href="#home" class="text-spring-primary hover:text-spring-accent transition-colors font-main font-semibold py-2 border-b border-spring-light">首页</a>
+        <a href="#features" class="text-spring-primary hover:text-spring-accent transition-colors font-main font-semibold py-2 border-b border-spring-light">春之特色</a>
+        <a href="#gallery" class="text-spring-primary hover:text-spring-accent transition-colors font-main font-semibold py-2 border-b border-spring-light">春之画廊</a>
+        <a href="#activities" class="text-spring-primary hover:text-spring-accent transition-colors font-main font-semibold py-2 border-b border-spring-light">春日活动</a>
+        <a href="#contact" class="text-spring-primary hover:text-spring-accent transition-colors font-main font-semibold py-2">联系我们</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 头部区域 -->
+  <header id="home" class="relative pt-24 md:pt-32 pb-16 md:pb-24 overflow-hidden">
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-spring font-bold text-spring-primary mb-6 animate-grow" style="animation-delay: 0.2s;">
+          拥抱春天的美好
+        </h1>
+        <p class="text-[clamp(1rem,2vw,1.25rem)] font-main text-gray-700 mb-8 animate-grow" style="animation-delay: 0.5s;">
+          春天是大自然苏醒的季节，万物复苏，生机盎然。让我们一起探索春天的奇妙世界，感受生命的力量。
+        </p>
+        <a href="#gallery" class="inline-block bg-spring-accent hover:bg-spring-accent/90 text-white font-main font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 animate-grow" style="animation-delay: 0.8s;">
+          探索春天 <i class="fa fa-arrow-right ml-2"></i>
+        </a>
+      </div>
+    </div>
+    
+    <!-- 装饰元素 -->
+    <div class="absolute top-1/4 left-10 w-16 h-16 md:w-24 md:h-24 bg-spring-flower rounded-full opacity-60 animate-float" style="animation-delay: 0.1s;"></div>
+    <div class="absolute top-1/3 right-10 w-12 h-12 md:w-16 md:h-16 bg-spring-secondary rounded-full opacity-50 animate-float" style="animation-delay: 0.5s;"></div>
+    <div class="absolute bottom-1/4 left-1/4 w-10 h-10 md:w-14 md:h-14 bg-spring-sky rounded-full opacity-40 animate-float" style="animation-delay: 0.3s;"></div>
+    <div class="absolute bottom-1/3 right-1/4 w-8 h-8 md:w-12 md:h-12 bg-spring-primary rounded-full opacity-50 animate-float" style="animation-delay: 0.7s;"></div>
+    
+    <!-- 樱花装饰 -->
+    <div class="absolute top-0 left-0 right-0 h-full pointer-events-none">
+      <div class="cherry-blossom absolute top-[-100px] left-[10%] w-8 h-8 bg-spring-flower/80 rounded-full animate-float" style="animation-duration: 8s; animation-delay: 0s;">
+        <div class="absolute inset-0 bg-spring-flower/60 rounded-full transform scale-75 translate-x-4"></div>
+      </div>
+      <div class="cherry-blossom absolute top-[-100px] left-[25%] w-6 h-6 bg-spring-flower/70 rounded-full animate-float" style="animation-duration: 10s; animation-delay: 2s;">
+        <div class="absolute inset-0 bg-spring-flower/50 rounded-full transform scale-75 translate-x-3"></div>
+      </div>
+      <div class="cherry-blossom absolute top-[-100px] left-[40%] w-7 h-7 bg-spring-flower/75 rounded-full animate-float" style="animation-duration: 9s; animation-delay: 1s;">
+        <div class="absolute inset-0 bg-spring-flower/55 rounded-full transform scale-75 translate-x-3.5"></div>
+      </div>
+      <div class="cherry-blossom absolute top-[-100px] left-[60%] w-5 h-5 bg-spring-flower/65 rounded-full animate-float" style="animation-duration: 11s; animation-delay: 3s;">
+        <div class="absolute inset-0 bg-spring-flower/45 rounded-full transform scale-75 translate-x-2.5"></div>
+      </div>
+      <div class="cherry-blossom absolute top-[-100px] left-[75%] w-6 h-6 bg-spring-flower/70 rounded-full animate-float" style="animation-duration: 8.5s; animation-delay: 1.5s;">
+        <div class="absolute inset-0 bg-spring-flower/50 rounded-full transform scale-75 translate-x-3"></div>
+      </div>
+      <div class="cherry-blossom absolute top-[-100px] left-[90%] w-7 h-7 bg-spring-flower/75 rounded-full animate-float" style="animation-duration: 10.5s; animation-delay: 2.5s;">
+        <div class="absolute inset-0 bg-spring-flower/55 rounded-full transform scale-75 translate-x-3.5"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 春之特色 -->
+  <section id="features" class="py-16 md:py-24 bg-white/50 backdrop-blur-sm">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-spring font-bold text-spring-primary mb-4">春之特色</h2>
+        <div class="w-24 h-1 bg-spring-accent mx-auto mb-6"></div>
+        <p class="text-[clamp(1rem,1.5vw,1.1rem)] font-main text-gray-600 max-w-3xl mx-auto">
+          春天带来了温暖的阳光、清新的空气和五彩斑斓的花朵。让我们一起探索春天的五大特色。
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <!-- 特色卡片1 -->
+        <div class="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all transform hover:-translate-y-2 duration-300">
+          <div class="w-16 h-16 bg-spring-flower/20 rounded-full flex items-center justify-center mb-6 mx-auto">
+            <i class="fa fa-leaf text-2xl text-spring-primary"></i>
+          </div>
+          <h3 class="text-xl font-spring font-bold text-spring-primary text-center mb-3">万物复苏</h3>
+          <p class="text-gray-600 text-center">冬天过后，植物开始发芽生长，大地重新披上绿装。</p>
+        </div>
+        
+        <!-- 特色卡片2 -->
+        <div class="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all transform hover:-translate-y-2 duration-300">
+          <div class="w-16 h-16 bg-spring-sky/20 rounded-full flex items-center justify-center mb-6 mx-auto">
+            <i class="fa fa-sun-o text-2xl text-spring-secondary"></i>
+          </div>
+          <h3 class="text-xl font-spring font-bold text-spring-primary text-center mb-3">阳光明媚</h3>
+          <p class="text-gray-600 text-center">春天的阳光温暖而不强烈，给人带来舒适的感觉。</p>
+        </div>
+        
+        <!-- 特色卡片3 -->
+        <div class="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all transform hover:-translate-y-2 duration-300">
+          <div class="w-16 h-16 bg-spring-flower/20 rounded-full flex items-center justify-center mb-6 mx-auto">
+            <i class="fa fa-pagelines text-2xl text-spring-primary"></i>
+          </div>
+          <h3 class="text-xl font-spring font-bold text-spring-primary text-center mb-3">鲜花盛开</h3>
+          <p class="text-gray-600 text-center">各种花朵在春天绽放，形成五彩斑斓的花海。</p>
+        </div>
+        
+        <!-- 特色卡片4 -->
+        <div class="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all transform hover:-translate-y-2 duration-300">
+          <div class="w-16 h-16 bg-spring-sky/20 rounded-full flex items-center justify-center mb-6 mx-auto">
+            <i class="fa fa-cloud text-2xl text-spring-secondary"></i>
+          </div>
+          <h3 class="text-xl font-spring font-bold text-spring-primary text-center mb-3">春雨绵绵</h3>
+          <p class="text-gray-600 text-center">春雨滋润大地，为万物生长提供必要的水分。</p>
+        </div>
+        
+        <!-- 特色卡片5 -->
+        <div class="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all transform hover:-translate-y-2 duration-300">
+          <div class="w-16 h-16 bg-spring-flower/20 rounded-full flex items-center justify-center mb-6 mx-auto">
+            <i class="fa fa-twitter text-2xl text-spring-primary"></i>
+          </div>
+          <h3 class="text-xl font-spring font-bold text-spring-primary text-center mb-3">鸟语花香</h3>
+          <p class="text-gray-600 text-center">鸟儿在枝头欢唱，春天充满了生机和活力。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 春之画廊 -->
+  <section id="gallery" class="py-16 md:py-24 bg-spring-light/50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-spring font-bold text-spring-primary mb-4">春之画廊</h2>
+        <div class="w-24 h-1 bg-spring-accent mx-auto mb-6"></div>
+        <p class="text-[clamp(1rem,1.5vw,1.1rem)] font-main text-gray-600 max-w-3xl mx-auto">
+          欣赏春天的美丽景色，感受大自然的魅力。这里收集了春天最迷人的瞬间。
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- 图片1 -->
+        <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer">
+          <img src="https://picsum.photos/seed/spring1/600/400" alt="春天盛开的樱花" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+            <div class="p-6">
+              <h3 class="text-xl font-spring font-bold text-white mb-2">樱花盛开</h3>
+              <p class="text-white/80">粉色的樱花如同雪花般飘落，美不胜收。</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 图片2 -->
+        <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer">
+          <img src="https://picsum.photos/seed/spring2/600/400" alt="春天嫩绿的草地" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+            <div class="p-6">
+              <h3 class="text-xl font-spring font-bold text-white mb-2">嫩绿草地</h3>
+              <p class="text-white/80">春天的草地绿油油的，充满了生机。</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 图片3 -->
+        <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer">
+          <img src="https://picsum.photos/seed/spring3/600/400" alt="春天的花朵" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+            <div class="p-6">
+              <h3 class="text-xl font-spring font-bold text-white mb-2">五彩花朵</h3>
+              <p class="text-white/80">各种颜色的花朵竞相开放，形成美丽的花海。</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 图片4 -->
+        <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer">
+          <img src="https://picsum.photos/seed/spring4/600/400" alt="春天的小鸟" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+            <div class="p-6">
+              <h3 class="text-xl font-spring font-bold text-white mb-2">春之精灵</h3>
+              <p class="text-white/80">小鸟在枝头欢唱，带来春天的消息。</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 图片5 -->
+        <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer">
+          <img src="https://picsum.photos/seed/spring5/600/400" alt="春天的湖泊" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+            <div class="p-6">
+              <h3 class="text-xl font-spring font-bold text-white mb-2">春水涟漪</h3>
+              <p class="text-white/80">春天的湖水清澈见底，倒映着周围的美景。</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 图片6 -->
+        <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer">
+          <img src="https://picsum.photos/seed/spring6/600/400" alt="春天的风景" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+            <div class="p-6">
+              <h3 class="text-xl font-spring font-bold text-white mb-2">春日风光</h3>
+              <p class="text-white/80">春天的乡村风光如画，让人心旷神怡。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 春天的动植物 -->
+  <section class="py-16 md:py-24 bg-white/50 backdrop-blur-sm">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-spring font-bold text-spring-primary mb-4">春天的动植物</h2>
+        <div class="w-24 h-1 bg-spring-accent mx-auto mb-6"></div>
+        <p class="text-[clamp(1rem,1.5vw,1.1rem)] font-main text-gray-600 max-w-3xl mx-auto">
+          春天是万物复苏的季节，各种动植物都展现出勃勃生机。
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- 植物部分 -->
+        <div class="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-8 hover:shadow-xl transition-all">
+          <div class="flex items-center mb-6">
+            <div class="w-14 h-14 bg-spring-flower/20 rounded-full flex items-center justify-center mr-4">
+              <i class="fa fa-pagelines text-2xl text-spring-primary"></i>
+            </div>
+            <h3 class="text-2xl font-spring font-bold text-spring-primary">春天的植物</h3>
+          </div>
+          
+          <div class="space-y-6">
+            <div class="flex items-center">
+              <img src="https://picsum.photos/seed/flower1/100/100" alt="樱花" class="w-16 h-16 rounded-full object-cover mr-4">
+              <div>
+                <h4 class="text-lg font-semibold text-spring-primary">樱花</h4>
+                <p class="text-gray-600">樱花是春天的象征，粉色和白色的花朵非常美丽。</p>
+              </div>
+            </div>
+            
+            <div class="flex items-center">
+              <img src="https://picsum.photos/seed/flower2/100/100" alt="郁金香" class="w-16 h-16 rounded-full object-cover mr-4">
+              <div>
+                <h4 class="text-lg font-semibold text-spring-primary">郁金香</h4>
+                <p class="text-gray-600">郁金香色彩丰富，有红、黄、紫等多种颜色。</p>
+              </div>
+            </div>
+            
+            <div class="flex items-center">
+              <img src="https://picsum.photos/seed/flower3/100/100" alt="水仙花" class="w-16 h-16 rounded-full object-cover mr-4">
+              <div>
+                <h4 class="text-lg font-semibold text-spring-primary">水仙花</h4>
+                <p class="text-gray-600">水仙花香淡雅，花朵洁白如雪，非常惹人喜爱。</p>
+              </div>
+            </div>
+            
+            <div class="flex items-center">
+              <img src="https://picsum.photos/seed/flower4/100/100" alt="桃花" class="w-16 h-16 rounded-full object-cover mr-4">
+              <div>
+                <h4 class="text-lg font-semibold text-spring-primary">桃花</h4>
+                <p class="text-gray-600">桃花粉红娇艳，是春天最早开放的花朵之一。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 动物部分 -->
+        <div class="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-8 hover:shadow-xl transition-all">
+          <div class="flex items-center mb-6">
+            <div class="w-14 h-14 bg-spring-sky/20 rounded-full flex items-center justify-center mr-4">
+              <i class="fa fa-paw text-2xl text-spring-primary"></i>
+            </div>
+            <h3 class="text-2xl font-spring font-bold text-spring-primary">春天的动物</h3>
+          </div>
+          
+          <div class="space-y-6">
+            <div class="flex items-center">
+              <img src="https://picsum.photos/seed/bird1/100/100" alt="知更鸟" class="w-16 h-16 rounded-full object-cover mr-4">
+              <div>
+                <h4 class="text-lg font-semibold text-spring-primary">知更鸟</h4>
+                <p class="text-gray-600">知更鸟是春天的使者，它们的歌声清脆悦耳。</p>
+              </div>
+            </div>
+            
+            <div class="flex items-center">
+              <img src="https://picsum.photos/seed/bird2/100/100" alt="蜜蜂" class="w-16 h-16 rounded-full object-cover mr-4">
+              <div>
+                <h4 class="text-lg font-semibold text-spring-primary">蜜蜂</h4>
+                <p class="text-gray-600">蜜蜂在花丛中忙碌地采蜜，为春天增添了生机。</p>
+              </div>
+            </div>
+            
+            <div class="flex items-center">
+              <img src="https://picsum.photos/seed/bird3/100/100" alt="蝴蝶" class="w-16 h-16 rounded-full object-cover mr-4">
+              <div>
+                <h4 class="text-lg font-semibold text-spring-primary">蝴蝶</h4>
+                <p class="text-gray-600">蝴蝶在花丛中飞舞，它们的翅膀色彩斑斓。</p>
+              </div>
+            </div>
+            
+            <div class="flex items-center">
+              <img src="https://picsum.photos/seed/bird4/100/100" alt="兔子" class="w-16 h-16 rounded-full object-cover mr-4">
+              <div>
+                <h4 class="text-lg font-semibold text-spring-primary">野兔</h4>
+                <p class="text-gray-600">野兔在草地上跳跃，它们是春天里活泼的精灵。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 春日活动 -->
+  <section id="activities" class="py-16 md:py-24 bg-spring-light/50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-spring font-bold text-spring-primary mb-4">春日活动</h2>
+        <div class="w-24 h-1 bg-spring-accent mx-auto mb-6"></div>
+        <p class="text-[clamp(1rem,1.5vw,1.1rem)] font-main text-gray-600 max-w-3xl mx-auto">
+          春天是户外活动的好时机，让我们一起参与这些有趣的春日活动。
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- 活动卡片1 -->
+        <div class="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all group">
+          <div class="h-48 overflow-hidden">
+            <img src="https://picsum.photos/seed/activity1/600/400" alt="野餐" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-3">
+              <span class="bg-spring-flower/20 text-spring-primary text-sm font-semibold px-3 py-1 rounded-full">户外活动</span>
+              <span class="text-gray-500 text-sm"><i class="fa fa-calendar-o mr-1"></i> 全年</span>
+            </div>
+            <h3 class="text-xl font-spring font-bold text-spring-primary mb-3">春日野餐</h3>
+            <p class="text-gray-600 mb-4">在公园或郊外享受春日的阳光和新鲜空气，与家人朋友一起野餐是春天最惬意的活动之一。</p>
+            <a href="#" class="inline-flex items-center text-spring-accent hover:text-spring-accent/80 font-semibold">
+              了解更多 <i class="fa fa-long-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- 活动卡片2 -->
+        <div class="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all group">
+          <div class="h-48 overflow-hidden">
+            <img src="https://picsum.photos/seed/activity2/600/400" alt="赏花" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-3">
+              <span class="bg-spring-flower/20 text-spring-primary text-sm font-semibold px-3 py-1 rounded-full">自然探索</span>
+              <span class="text-gray-500 text-sm"><i class="fa fa-calendar-o mr-1"></i> 3-4月</span>
+            </div>
+            <h3 class="text-xl font-spring font-bold text-spring-primary mb-3">赏花之旅</h3>
+            <p class="text-gray-600 mb-4">春天是各种花卉盛开的季节，去花园或郊外欣赏美丽的花朵，感受春天的色彩。</p>
+            <a href="#" class="inline-flex items-center text-spring-accent hover:text-spring-accent/80 font-semibold">
+              了解更多 <i class="fa fa-long-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- 活动卡片3 -->
+        <div class="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all group">
+          <div class="h-48 overflow-hidden">
+            <img src="https://picsum.photos/seed/activity3/600/400" alt="徒步" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-3">
+              <span class="bg-spring-flower/20 text-spring-primary text-sm font-semibold px-3 py-1 rounded-full">健康运动</span>
+              <span class="text-gray-500 text-sm"><i class="fa fa-calendar-o mr-1"></i> 全年</span>
+            </div>
+            <h3 class="text-xl font-spring font-bold text-spring-primary mb-3">春日徒步</h3>
+            <p class="text-gray-600 mb-4">沿着山间小径徒步，呼吸新鲜的空气，欣赏春天的美景，是锻炼身体的好方法。</p>
+            <a href="#" class="inline-flex items-center text-spring-accent hover:text-spring-accent/80 font-semibold">
+              了解更多 <i class="fa fa-long-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系我们 -->
+  <section id="contact" class="py-16 md:py-24 bg-white/50 backdrop-blur-sm">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-spring font-bold text-spring-primary mb-6">与春天保持联系</h2>
+          <p class="text-[clamp(1rem,1.5vw,1.1rem)] font-main text-gray-600 mb-8">
+            如果你热爱春天，想了解更多关于春天的活动和信息，欢迎联系我们。我们会定期分享春天的美好瞬间和活动安排。
+          </p>
+          
+          <div class="space-y-6">
+            <div class="flex items-start">
+              <div class="w-12 h-12 bg-spring-flower/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                <i class="fa fa-map-marker text-xl text-spring-primary"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-spring-primary mb-1">地址</h3>
+                <p class="text-gray-600">北京市朝阳区春天路123号春之园</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="w-12 h-12 bg-spring-flower/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                <i class="fa fa-envelope text-xl text-spring-primary"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-spring-primary mb-1">邮箱</h3>
+                <p class="text-gray-600">spring@example.com</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="w-12 h-12 bg-spring-flower/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                <i class="fa fa-phone text-xl text-spring-primary"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-spring-primary mb-1">电话</h3>
+                <p class="text-gray-600">+86 10 1234 5678</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mt-8 flex space-x-4">
+            <a href="#" class="w-10 h-10 bg-spring-primary/10 hover:bg-spring-primary/20 rounded-full flex items-center justify-center text-spring-primary transition-colors">
+              <i class="fa fa-weixin"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-spring-primary/10 hover:bg-spring-primary/20 rounded-full flex items-center justify-center text-spring-primary transition-colors">
+              <i class="fa fa-weibo"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-spring-primary/10 hover:bg-spring-primary/20 rounded-full flex items-center justify-center text-spring-primary transition-colors">
+              <i class="fa fa-instagram"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-spring-primary/10 hover:bg-spring-primary/20 rounded-full flex items-center justify-center text-spring-primary transition-colors">
+              <i class="fa fa-youtube-play"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-8 hover:shadow-xl transition-all">
+          <h3 class="text-2xl font-spring font-bold text-spring-primary mb-6">发送消息</h3>
+          <form>
+            <div class="mb-4">
+              <label for="name" class="block text-gray-700 font-medium mb-2">姓名</label>
+              <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-spring-primary/50 focus:border-spring-primary transition-colors" placeholder="请输入您的姓名">
+            </div>
+            
+            <div class="mb-4">
+              <label for="email" class="block text-gray-700 font-medium mb-2">邮箱</label>
+              <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-spring-primary/50 focus:border-spring-primary transition-colors" placeholder="请输入您的邮箱">
+            </div>
+            
+            <div class="mb-4">
+              <label for="subject" class="block text-gray-700 font-medium mb-2">主题</label>
+              <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-spring-primary/50 focus:border-spring-primary transition-colors" placeholder="请输入消息主题">
+            </div>
+            
+            <div class="mb-6">
+              <label for="message" class="block text-gray-700 font-medium mb-2">消息内容</label>
+              <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-spring-primary/50 focus:border-spring-primary transition-colors" placeholder="请输入您的消息内容"></textarea>
+            </div>
+            
+            <button type="submit" class="w-full bg-spring-accent hover:bg-spring-accent/90 text-white font-medium py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+              发送消息 <i class="fa fa-paper-plane ml-2"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="bg-spring-primary/90 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-2xl font-spring font-bold mb-6">春日之约</h3>
+          <p class="mb-6 text-white/80">
+            探索春天的美丽与神奇，感受大自然的魅力。让我们一起迎接春天的到来！
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-white/80 hover:text-white transition-colors">
+              <i class="fa fa-weixin"></i>
+            </a>
+            <a href="#" class="text-white/80 hover:text-white transition-colors">
+              <i class="fa fa-weibo"></i>
+            </a>
+            <a href="#" class="text-white/80 hover:text-white transition-colors">
+              <i class="fa fa-instagram"></i>
+            </a>
+            <a href="#" class="text-white/80 hover:text-white transition-colors">
+              <i class="fa fa-youtube-play"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold mb-6">快速链接</h4>
+          <ul class="space-y-3">
+            <li><a href="#home" class="text-white/80 hover:text-white transition-colors">首页</a></li>
+            <li><a href="#features" class="text-white/80 hover:text-white transition-colors">春之特色</a></li>
+            <li><a href="#gallery" class="text-white/80 hover:text-white transition-colors">春之画廊</a></li>
+            <li><a href="#activities" class="text-white/80 hover:text-white transition-colors">春日活动</a></li>
+            <li><a href="#contact" class="text-white/80 hover:text-white transition-colors">联系我们</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold mb-6">热门活动</h4>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-white/80 hover:text-white transition-colors">樱花节</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white transition-colors">郁金香展览</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white transition-colors">春日徒步</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white transition-colors">户外野餐</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white transition-colors">摄影比赛</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold mb-6">订阅我们</h4>
+          <p class="mb-4 text-white/80">
+            订阅我们的通讯，获取最新的春天活动和信息。
+          </p>
+          <form class="mb-4">
+            <div class="flex">
+              <input type="email" placeholder="您的邮箱地址" class="flex-1 px-4 py-2 rounded-l-lg focus:outline-none text-gray-800">
+              <button type="submit" class="bg-spring-secondary hover:bg-spring-secondary/90 text-white px-4 py-2 rounded-r-lg transition-colors">
+                <i class="fa fa-paper-plane"></i>
+              </button>
+            </div>
+          </form>
+          <p class="text-white/60 text-sm">
+            我们尊重您的隐私，不会向第三方分享您的信息。
+          </p>
+        </div>
+      </div>
+      
+      <div class="border-t border-white/20 mt-12 pt-8 text-center text-white/60 text-sm">
+        <p>© 2025 春日之约. 保留所有权利.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 回到顶部按钮 -->
+  <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 bg-spring-accent text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all z-50">
+    <i class="fa fa-arrow-up"></i>
+  </button>
+
+  <script>
+    // 导航栏滚动效果
+    const navbar = document.getElementById('navbar');
+    const backToTop = document.getElementById('back-to-top');
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    // 监听滚动事件
+    window.addEventListener('scroll', function() {
+      // 导航栏背景变化
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-white/90', 'backdrop-blur-sm', 'shadow-md');
+      } else {
+        navbar.classList.remove('bg-white/90', 'backdrop-blur-sm', 'shadow-md');
+      }
+      
+      // 回到顶部按钮显示/隐藏
+      if (window.scrollY > 300) {
+        backToTop.classList.remove('opacity-0', 'invisible');
+        backToTop.classList.add('opacity-100', 'visible');
+      } else {
+        backToTop.classList.add('opacity-0', 'invisible');
+        backToTop.classList.remove('opacity-100', 'visible');
+      }
+    });
+    
+    // 回到顶部功能
+    backToTop.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // 移动端菜单切换
+    menuToggle.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+      // 切换图标
+      const icon = menuToggle.querySelector('i');
+      if (mobileMenu.classList.contains('hidden')) {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      } else {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      }
+    });
+    
+    // 移动端菜单点击链接后关闭
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        mobileMenu.classList.add('hidden');
+        const icon = menuToggle.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      });
+    });
+    
+    // 平滑滚动到锚点
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // 樱花飘落动画
+    function createCherryBlossoms() {
+      const cherryContainer = document.querySelector('.absolute.top-0.left-0.right-0.h-full');
+      const cherryCount = 20;
+      
+      for (let i = 0; i < cherryCount; i++) {
+        const cherry = document.createElement('div');
+        cherry.className = 'cherry-blossom absolute opacity-70';
+        
+        // 随机位置和大小
+        const left = Math.random() * 100;
+        const size = Math.random() * 10 + 10;
+        const delay = Math.random() * 10;
+        const duration = Math.random() * 20 + 10;
+        
+        cherry.style.left = `${left}%`;
+        cherry.style.width = `${size}px`;
+        cherry.style.height = `${size}px`;
+        cherry.style.backgroundColor = `rgba(248, 187, 208, ${Math.random() * 0.5 + 0.3})`;
+        cherry.style.borderRadius = '50%';
+        cherry.style.animation = `fall ${duration}s linear infinite`;
+        cherry.style.animationDelay = `${delay}s`;
+        
+        // 内部小圆点
+        const innerDot = document.createElement('div');
+        innerDot.className = 'absolute inset-0 rounded-full';
+        innerDot.style.backgroundColor = `rgba(248, 187, 208, ${Math.random() * 0.3 + 0.2})`;
+        innerDot.style.transform = `scale(${Math.random() * 0.5 + 0.5}) translate(${Math.random() * 5}px, ${Math.random() * 5}px)`;
+        
+        cherry.appendChild(innerDot);
+        cherryContainer.appendChild(cherry);
+      }
+    }
+    
+    // 添加樱花飘落动画样式
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fall {
+        0% {
+          transform: translateY(-100px) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.7;
+        }
+        90% {
+          opacity: 0.7;
+        }
+        100% {
+          transform: translateY(calc(100vh + 100px)) rotate(360deg);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+    
+    // 页面加载完成后创建樱花
+    window.addEventListener('load', createCherryBlossoms);
+  </script>
+</body>
+</html>
+    
