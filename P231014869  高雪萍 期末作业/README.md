@@ -90,21 +90,25 @@
 ## 运行截图
 
 *待项目完成后，在此处嵌入截图。*
+[![期末作业屏幕截图](https://imgur.la/images/2025/07/07/4d978ff290ad942013d51ffd5ffa815d.png)]
 
 ### 1. QAnything 运行截图
 *(此处将展示自行开发的 API 调用界面)*
-
-![QAnything Screenshot](https://via.placeholder.com/600x400.png?text=QAnything+Interface+Screenshot)
+[![QAnything 屏幕截图](https://imgur.la/images/2025/07/07/QAnything-.png)]
 
 ### 2. WakaTime API 集成与展示截图
 *(此处将展示页脚显示的总编码时长)*
-
-![WakaTime Screenshot](https://via.placeholder.com/600x100.png?text=WakaTime+Footer+Screenshot)
-
+[![Wakatime屏幕截图](https://imgur.la/images/2025/07/07/Wakatime.png)]
 ### 3. Next.js 组织课程练习作业的运行截图
 *(此处将展示作品集导航页和某个具体练习的运行界面)*
-
-![Portfolio Screenshot](https://via.placeholder.com/600x400.png?text=Portfolio+Page+Screenshot)
+[![03 css 01屏幕截图](https://imgur.la/images/2025/07/07/03-css-01.png)]
+[![03 css 02屏幕截图](https://imgur.la/images/2025/07/07/03-css-02.png)]
+[![04 css 01屏幕截图](https://imgur.la/images/2025/07/07/04-css-01.png)]
+[![04 css 02 relative屏幕截图](https://imgur.la/images/2025/07/07/04-css-02-relative.png)]
+[![04 css 02屏幕截图](https://imgur.la/images/2025/07/07/04-css-02.png)]
+[![05 JS屏幕截图](https://imgur.la/images/2025/07/07/05-JS.png)]
+[![第七次作业屏幕截图](https://imgur.la/images/2025/07/07/fb8acd5c2612be81dd7407a3b2f4bfbb.png)]
+[![精美网页屏幕截图](https://imgur.la/images/2025/07/07/9fe96be546a6d6dbf1e96dba1d73139a.png)]
 
 ## GitHub 仓库管理
 
